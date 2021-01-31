@@ -7,7 +7,6 @@ using DotNetEnv;
 DotNetEnv.Env.TraversePath().Load();
 readonly string TWITTER_USER_TOKEN = Environment.GetEnvironmentVariable("TWITTER_USER_TOKEN");
 readonly string TWITTER_USER_SECRET = Environment.GetEnvironmentVariable("TWITTER_USER_SECRET");
-readonly string TWITTER_API_BEARER = Environment.GetEnvironmentVariable("TWITTER_API_BEARER");
 readonly string TWITTER_CONSUMER_TOKEN = Environment.GetEnvironmentVariable("TWITTER_CONSUMER_TOKEN");
 readonly string TWITTER_CONSUMER_SECRET = Environment.GetEnvironmentVariable("TWITTER_CONSUMER_SECRET");
 
