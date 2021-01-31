@@ -1,0 +1,18 @@
+name: "Delete self-destructing tweets every six hours."
+
+on:
+  schedule:
+    - cron: "0 0,6,12,18 * * *"
+
+jobs:
+  self-destruct:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "5.0.x"
+      - run: |
+          dotnet tool restore
+          dotnet script scripts/self-destruct-tweets.csx
+        shell: pwsh

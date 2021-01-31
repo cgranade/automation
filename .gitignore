@@ -1,0 +1,2 @@
+# .env files can contain secrets, never allow that to be committed.
+.env
