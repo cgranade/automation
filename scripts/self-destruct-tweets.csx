@@ -11,6 +11,11 @@ readonly string TWITTER_API_BEARER = Environment.GetEnvironmentVariable("TWITTER
 readonly string TWITTER_CONSUMER_TOKEN = Environment.GetEnvironmentVariable("TWITTER_CONSUMER_TOKEN");
 readonly string TWITTER_CONSUMER_SECRET = Environment.GetEnvironmentVariable("TWITTER_CONSUMER_SECRET");
 
+// Check that secrets were set correctly.
+if (string.IsNullOrEmpty(TWITTER_USER_TOKEN)) { throw new Exception($"Missing secret {nameof(TWITTER_USER_TOKEN)}"); }
+if (string.IsNullOrEmpty(TWITTER_USER_SECRET)) { throw new Exception($"Missing secret {nameof(TWITTER_USER_SECRET)}"); }
+if (string.IsNullOrEmpty(TWITTER_CONSUMER_TOKEN)) { throw new Exception($"Missing secret {nameof(TWITTER_CONSUMER_TOKEN)}"); }
+if (string.IsNullOrEmpty(TWITTER_CONSUMER_SECRET)) { throw new Exception($"Missing secret {nameof(TWITTER_CONSUMER_SECRET)}"); }
 var client = new TwitterClient(TWITTER_CONSUMER_TOKEN, TWITTER_CONSUMER_SECRET, TWITTER_USER_TOKEN, TWITTER_USER_SECRET);
 var user = await client.Users.GetAuthenticatedUserAsync();
 Console.WriteLine($"Authenticated as user {user}.");
