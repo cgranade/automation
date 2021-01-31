@@ -8,6 +8,8 @@ on:
 jobs:
   self-destruct:
     runs-on: ubuntu-latest
+    # The main environment has all the secrets we need.
+    environment: main
     steps:
       - uses: actions/checkout@main
       - uses: actions/setup-dotnet@v1
